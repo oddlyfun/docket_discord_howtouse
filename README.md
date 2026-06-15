@@ -18,14 +18,40 @@ The docket is meant to answer a simple question: “What could we draft tonight,
 
 ## Basic Commands
 
-| Command | What It Does | Example |
-|---------|--------------|---------|
-| `!add [cube]` | Adds a cube to the docket | `!add Turbo Cube` |
-| `!add [cube] !note [notes]` | Adds a cube with notes | `!add Turbo Cube !note Updated list this week` |
-| `!remove [cube]` | Removes a cube you added | `!remove Turbo Cube` |
-| `!docket` | Shows the current docket | `!docket` |
-| `!pack [cube] [size]` | Generates a random pack image from a CubeCobra cube | `!pack turbo 15` |
-| `!help` | Shows command help in Discord | `!help` |
+| Command                      | What It Does                                        | Example                                        |
+| ---------------------------- | --------------------------------------------------- | ---------------------------------------------- |
+| `!add [cube]`                | Adds a cube to the docket                           | `!add Turbo Cube`                              |
+| `!add [cube] !note [notes]`  | Adds a cube with notes                              | `!add Turbo Cube !note Updated list this week` |
+| `!remove [cube]`             | Removes a cube you added                            | `!remove Turbo Cube`                           |
+| `!docket`                    | Shows the current docket                            | `!docket`                                      |
+| `!pack [cube] [size]`        | Generates a random pack image from a CubeCobra cube | `!pack turbo 15`                               |
+| `!setreset [day] [timezone]` | Sets this channel's weekly midnight reset           | `!setreset Tuesday ET`                         |
+| `!help`                      | Shows command help in Discord                       | `!help`                                        |
+
+## Admin Setup: Set The Weekly Reset
+
+If you are setting up the bot for a server or channel, start here:
+
+```text
+!setreset Tuesday ET
+```
+
+This is strongly recommended. Cubes stay on the docket until either an admin runs `!reset` or a scheduled reset runs. If no reset is configured, last week's cubes will remain visible and players may not know whether the docket is current.
+
+Use the day your cube night happens. The bot resets at midnight after that day in the timezone you choose. For example, `!setreset Tuesday ET` resets after Tuesday cube night in Eastern time.
+
+Common timezone shortcuts:
+
+- `ET` or `Eastern`
+- `CT` or `Central`
+- `MT` or `Mountain`
+- `PT` or `Pacific`
+
+Admins can check the current reset schedule with `!help`, and can see supported timezone shortcuts with:
+
+```text
+!setreset timezones
+```
 
 ## Adding A Cube
 
@@ -50,15 +76,14 @@ Notes are useful for things like:
 - “Last chance before I rebuild this”
 - Power level or player count reminders
 
-## Adding A Cube For Someone Else
+## Add Cube Button
 
-You can mention another user when adding a cube:
+The docket message also includes an **Add Cube** button. This opens a form where you can enter:
 
-```text
-!add @Anthony turbo
-```
+- Cube name or CubeCobra ID
+- Optional notes
 
-The cube will be listed under that person instead of you.
+This is the button version of `!add`.
 
 ## Removing A Cube
 
@@ -92,15 +117,6 @@ Each player can mark interest in one cube at a time. Each cube can show up to fo
 
 If you already marked a cube, pressing **Want to Play** again will let you remove your interest.
 
-## Add Cube Button
-
-The docket message also includes an **Add Cube** button. This opens a form where you can enter:
-
-- Cube name or CubeCobra ID
-- Optional notes
-
-This is the button version of `!add`.
-
 ## Generating A Sample Pack
 
 Use `!pack` with a CubeCobra ID or short ID and a pack size:
@@ -115,28 +131,26 @@ Pack size is capped at 25.
 
 ## Resetting The Docket
 
-Admins can reset the current channel’s docket:
+Admins can reset the current channel's docket immediately:
 
 ```text
 !reset
 ```
 
-The bot also has an automatic weekly reset. When a docket is reset, current entries are archived so cube history can be reviewed later.
+To turn off the scheduled reset for a channel:
 
-## Good Docket Etiquette
+```text
+!setreset off
+```
 
-- Add only cubes you are realistically willing to play that session.
-- Use notes when a cube has special rules, unusual power level, or recent changes.
-- Remove your cube if you leave or no longer want it considered.
-- Use **Want to Play** as a preference signal, not a reservation system.
-- Run `!docket` when the conversation has moved and people need a fresh view of the list.
+When a docket is reset, current entries are archived so cube history can be reviewed later.
 
 ## Common Examples
 
 Add a CubeCobra cube by short ID:
 
 ```text
-!add turbo
+!add redterror
 ```
 
 Add a cube with notes:
