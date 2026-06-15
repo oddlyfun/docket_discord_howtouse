@@ -23,10 +23,8 @@ The docket is meant to answer a simple question: “What could we draft tonight,
 | `!add [cube]` | Adds a cube to the docket | `!add Turbo Cube` |
 | `!add [cube] !note [notes]` | Adds a cube with notes | `!add Turbo Cube !note Updated list this week` |
 | `!remove [cube]` | Removes a cube you added | `!remove Turbo Cube` |
-| `!rem [cube]` | Short version of `!remove` | `!rem Turbo Cube` |
 | `!docket` | Shows the current docket | `!docket` |
 | `!pack [cube] [size]` | Generates a random pack image from a CubeCobra cube | `!pack turbo 15` |
-| `!co [cube] [size]` | Short version of `!pack` | `!co turbo 15` |
 | `!help` | Shows command help in Discord | `!help` |
 
 ## Adding A Cube
@@ -64,7 +62,7 @@ The cube will be listed under that person instead of you.
 
 ## Removing A Cube
 
-Use `!remove` or `!rem`:
+Use `!remove`:
 
 ```text
 !remove turbo
@@ -113,12 +111,6 @@ Use `!pack` with a CubeCobra ID or short ID and a pack size:
 
 The bot will fetch cards from CubeCobra and post a stitched image of a random pack.
 
-The short command is `!co`:
-
-```text
-!co compost 15
-```
-
 Pack size is capped at 25.
 
 ## Resetting The Docket
@@ -162,7 +154,7 @@ Show the docket:
 Remove your cube:
 
 ```text
-!rem The Compost Cube
+!remove The Compost Cube
 ```
 
 Generate a 15-card pack:
